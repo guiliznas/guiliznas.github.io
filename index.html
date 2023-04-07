@@ -25,9 +25,19 @@
     @media screen and (prefers-color-scheme: dark) {
       html {
         --bg-color: #121212;
-        --text-color: #f0ece2;
+        /*--text-color: #f0ece2;*/
+        --text-color: #213e3b;
 
         --bg-card: var(--primary-light);
+      }
+    }
+
+    @media screen and (max-width: 750px) {
+      html {
+        font-size: 1vw;
+      }
+      .card {
+        width: 90vw;
       }
     }
     
@@ -49,14 +59,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       flex-direction: column;
       border-radius: 12px;
       background-color: var(--bg-card);
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     }
     .card {
-      width: max(30vw, 200px);
-      height: max(30vh, 150px);
+      min-width: 300px;
+      max-width: 90vw;
+      height: min(90vh, 250px);
       padding: 15px;
     }
   </style>
