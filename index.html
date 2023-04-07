@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <title> Guilherme de Liz do Nascimento </title>
+
+  <meta name="description" content="My personal website and portfolio" />
+
+  <style>
+    html {
+      --bg-color: #ebebeb;
+      /* --text-color: #213e3b; */
+      --text-color: #f0ece2;
+      --text-primary: #212121;
+      --text-secondary: #757575;
+      --primary: #009688;
+      --primary-dark: #00796B;
+      --primary-light: #B2DFDB;
+      --accent: #607D8B;
+      --divider: #BDBDBD;
+
+      --bg-card: var(--primary-dark);
+
+      font-family: system-ui, monospace, sans-serif;
+    }
+    @media screen and (prefers-color-scheme: dark) {
+      html {
+        --bg-color: #121212;
+        --text-color: #f0ece2;
+
+        --bg-card: var(--primary-light);
+      }
+    }
+    
+    body {
+      height: 100%;
+      min-height: 100vh;
+      width: 100%;
+      min-width: 100vw;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .full-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 12px;
+      background-color: var(--bg-card);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    }
+    .card {
+      width: max(30vw, 200px);
+      height: max(30vh, 150px);
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="full-center card">
+    <h2> Guilherme de Liz do Nascimento </h2>
+
+    <span id="clock"></span>
+  </div>
+
+  <script>
+    var timeDisplay = document.getElementById("clock");
+    function refreshTime() {
+      var dateString = new Date().toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo", compactDisplay: 'short'});
+      var formattedString = dateString.replace(", ", " - ");
+      timeDisplay.innerHTML = formattedString;
+    }
+    setInterval(refreshTime, 1000);
+  </script>
+</body>
+</html>
