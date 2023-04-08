@@ -1,93 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <title> Guilherme de Liz do Nascimento </title>
+  <head>
+    <title>Guilherme de Liz do Nascimento</title>
 
-  <meta name="description" content="My personal website and portfolio" />
+    <meta name="description" content="My personal website and portfolio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="pt-BR" />
 
-  <style>
-    html {
-      --bg-color: #ebebeb;
-      /* --text-color: #213e3b; */
-      --text-color: #f0ece2;
-      --text-primary: #212121;
-      --text-secondary: #757575;
-      --primary: #009688;
-      --primary-dark: #00796B;
-      --primary-light: #B2DFDB;
-      --accent: #607D8B;
-      --divider: #BDBDBD;
-
-      --bg-card: var(--primary-dark);
-
-      font-family: system-ui, monospace, sans-serif;
-    }
-    @media screen and (prefers-color-scheme: dark) {
-      html {
-        --bg-color: #121212;
-        /*--text-color: #f0ece2;*/
-        --text-color: #213e3b;
-
-        --bg-card: var(--primary-light);
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    }
+      :root {
+        --bg-color: #ebebeb;
+        /* --text-color: #213e3b; */
+        --text-color: #f0ece2;
+        --text-primary: #212121;
+        --text-secondary: #757575;
+        --primary: #009688;
+        --primary-dark: #00796b;
+        --primary-light: #b2dfdb;
+        --accent: #607d8b;
+        --divider: #bdbdbd;
 
-    @media screen and (max-width: 750px) {
-      html {
-        font-size: 1vw;
+        --bg-card: var(--primary-dark);
+
+        font-family: system-ui, monospace, sans-serif;
+      }
+      @media screen and (prefers-color-scheme: dark) {
+        html {
+          --bg-color: #121212;
+          /*--text-color: #f0ece2;*/
+          --text-color: #213e3b;
+
+          --bg-card: var(--primary-light);
+        }
+      }
+
+      @media screen and (max-width: 750px) {
+      }
+
+      body {
+        height: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      h2 {
+        margin-top: 0;
+      }
+      .full-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+      }
+      .container {
+        margin: auto;
       }
       .card {
-        width: 90vw;
+        max-width: 75vw;
+        min-width: min(300px, 75vw);
+        height: min(90vh, 150px);
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        background-color: var(--bg-card);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
       }
-    }
-    
-    body {
-      height: 100%;
-      min-height: 100vh;
-      width: 100%;
-      min-width: 100vw;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      footer {
+        color: var(--accent);
+      }
+      input {
+        background-color: transparent;
+        border: 0.5px solid var(--accent);
+        border-radius: 1rem;
+        padding: 0.5rem;
+        text-align: center;
+        color: var(--text-primary);
+      }
+      nav {
+        padding: 10px;
+      }
+    </style>
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .full-center {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      border-radius: 12px;
-      background-color: var(--bg-card);
-      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    }
-    .card {
-      min-width: 300px;
-      max-width: 90vw;
-      height: min(90vh, 250px);
-      padding: 15px;
-    }
-  </style>
-</head>
-<body>
-  <div class="full-center card">
-    <h2> Guilherme de Liz do Nascimento </h2>
+    <script src="./js/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <nav class="header">
+      <form action="https://www.google.com/search" method="get" target="_blank">
+        <input type="text" id="search" name="q" placeholder="Search" />
+      </form>
+    </nav>
+    <div class="full-center container">
+      <div class="card">
+        <h2>Ziltro.dev</h2>
+        <span id="greeting"></span>
+        <span id="weekday"></span>
+        <span id="clock"></span>
+      </div>
 
-    <span id="clock"></span>
-  </div>
+      <div id="weather" class="card" style="display: none;"></div>
+    </div>
 
-  <script>
-    var timeDisplay = document.getElementById("clock");
-    function refreshTime() {
-      var dateString = new Date().toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo", compactDisplay: 'short'});
-      var formattedString = dateString.replace(", ", " - ");
-      timeDisplay.innerHTML = formattedString;
-    }
-    setInterval(refreshTime, 1000);
-  </script>
-</body>
+    <footer>
+      <span>
+        Guilherme de Liz do Nascimento
+      </span>
+    </footer>
+
+    <script defer>
+      var timeDisplay = document.getElementById("clock");
+      function refreshTime() {
+        var dateString = new Date().toLocaleString("pt-BR", {
+          timeZone: "America/Sao_Paulo",
+          compactDisplay: "short",
+        });
+        var formattedString = dateString.replace(", ", " - ");
+        timeDisplay.innerHTML = formattedString;
+      }
+      setInterval(refreshTime, 1000);
+    </script>
+  </body>
 </html>
