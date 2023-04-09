@@ -9,6 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="language" content="pt-BR" />
 
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png" />
+
     <style>
       * {
         margin: 0;
@@ -16,7 +19,7 @@
         box-sizing: border-box;
       }
       :root {
-        --bg-color: #ebebeb;
+        --bg-color: #121212;
         /* --text-color: #213e3b; */
         --text-color: #f0ece2;
         --text-primary: #212121;
@@ -27,18 +30,11 @@
         --accent: #607d8b;
         --divider: #bdbdbd;
 
-        --bg-card: var(--primary-dark);
+        --bg-card: var(--primary-light);
 
         font-family: system-ui, monospace, sans-serif;
       }
       @media screen and (prefers-color-scheme: dark) {
-        html {
-          --bg-color: #121212;
-          /*--text-color: #f0ece2;*/
-          --text-color: #213e3b;
-
-          --bg-card: var(--primary-light);
-        }
       }
 
       @media screen and (max-width: 750px) {
@@ -72,13 +68,11 @@
       }
       .card {
         max-width: 75vw;
-        min-width: min(300px, 75vw);
-        height: min(90vh, 150px);
         padding: 15px;
         margin-bottom: 10px;
         border-radius: 12px;
-        background-color: var(--bg-card);
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--accent);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -98,30 +92,41 @@
       nav {
         padding: 10px;
       }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px 20px;
+      }
     </style>
 
     <script src="./js/app.js" type="module" defer></script>
   </head>
   <body>
     <nav class="header">
+      <img src="/img/logo.png" alt="Ziltro.dev" width="100" />
       <form action="https://www.google.com/search" method="get" target="_blank">
         <input type="text" id="search" name="q" placeholder="Search" />
       </form>
     </nav>
-    <div class="full-center container">
-      <div class="card">
-        <h2>Ziltro.dev</h2>
+    <div class="full-center container" style="gap: 15px;">
+      <div>
         <span id="greeting"></span>
+        <br />
         <span id="weekday"></span>
         <span id="clock"></span>
       </div>
+      
+      <div class="row">
+        <div id="weather" class="full-center card" style="display: none;"></div>
+        <div id="forecast" style="display: none;"></div>
+      </div>
 
-      <div id="weather" class="card" style="display: none;"></div>
     </div>
 
     <footer>
       <span>
-        Guilherme de Liz do Nascimento
+        2023 © Guilherme de Liz do Nascimento
       </span>
     </footer>
 
